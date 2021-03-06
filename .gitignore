@@ -1,3 +1,10 @@
+.vscode
+.vs
+*.bin
+*.img
+backup*
+test*
+
 # Prerequisites
 *.d
 
