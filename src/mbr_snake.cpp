@@ -358,18 +358,18 @@ public:
 		{
 			for (uint16_t j{}; j < Size; j++)
 			{
-				x86::setPixel(x86::rgb<64, 64, 64>(), i, j);
+				x86::setPixel(x86::rgb<0, 0, 160>(), i, j);
 			}
 		}
 
 		// Snake
 		for (len_type i{}; i < m_len; i++)
 		{
-			x86::setPixel(x86::rgb<0, 255, 0>(), segment[i].x, segment[i].y);
+			x86::setPixel(x86::rgb<160, 0, 160>(), segment[i].x, segment[i].y);
 		}
 
 		// Food
-		x86::setPixel(x86::rgb<255, 0, 0>(), m_foodPos.x, m_foodPos.y);
+		x86::setPixel(x86::rgb<255, 255, 255>(), m_foodPos.x, m_foodPos.y);
 	}
 
 	_ALWAYS_INLINE_ void mainLoop()
