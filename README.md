@@ -58,4 +58,4 @@ This project **specifically requires GCC on Linux** to be built. Your mileage ma
 
 
 _____________________
-![MIT Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MIT_logo.svg/40px-MIT_logo.svg.png) Licensed under [MIT License](LICENSE).
+![MIT Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MIT_logo.svg/32px-MIT_logo.svg.png) Licensed under [MIT License](LICENSE).
