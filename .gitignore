@@ -5,6 +5,7 @@
 backup*
 test*
 releases/*
+*.sha256
 
 # Prerequisites
 *.d

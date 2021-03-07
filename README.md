@@ -21,11 +21,11 @@ Originally I developed a version of this for a university assignment in 2017, ho
 ## Usage
 
 
-1. To run the game, you can **download a bootable floppy image from [Releases](https://github.com/adam10603/mbr_snake/releases)**, or build one yourself (see [Building](#building)).
+1. To run the game, you can **download a bootable image from [Releases](https://github.com/adam10603/mbr_snake/releases)**, or build one yourself (see [Building](#building)).
 
 2. After you have an image, you can **use a virtual machine** to boot it (such as VirtualBox or QEMU), or even a real PC by flashing the image onto a USB drive for example.
 
-    - **[This browser-based VM](https://copy.sh/v86/) is probably the easiest**. Simply go there, upload the image under "Floppy disk image", and click "Start emulation". I suggest increasing the "Scale" setting to see things better.
+    - **[This browser-based VM](https://copy.sh/v86/) is probably the easiest**. Open the website, select `mbr_snake.img` as "Floppy disk image", and click "Start emulation". I suggest increasing the "Scale" setting to see things better.
 
 3. Once you've booted the game, you can play using the **arrow keys** ⬆ ➡ ⬇ ⬅ .
 
