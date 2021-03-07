@@ -13,11 +13,11 @@ The main goal of this project is to show how it's possible to use modern tools s
 ![Gameplay](https://i.imgur.com/yP49Wzl.gif)
 
 
-An x86 boot sector has 510 bytes of usable program space. The entire game including logic, graphics, input handling etc. has to fit in that space. Of course there's no underlying operating system to provide further runtime functionality (such as memory allocation) either, so the binary has to be self-sufficient as well.
+An x86 boot sector has 510 bytes of usable program space. The entire game including logic, graphics, input handling etc. has to fit in that space. Since there's no underlying OS to provide further runtime functionality (like memory allocation), the binary has to be fully self-sufficient as well.
 
-Originally I developed a version of this for a university assignment in 2017, however, at the time I couldn't implement every feature of the game due to the size limit. Recently in 2021 I stumbled across that original project and decided to give it another go. Thanks to everything I've learned since then, I was able to fully implement the game this time, so I decided to upload it here for the snake of it.
+Originally I developed a version of this for a university assignment in 2017, however, at the time I couldn't implement every feature of the game due to the size limit. Recently I stumbled across that original project and decided to give it another go. Thanks to everything I've learned since then, I was able to fully implement the game this time, so I decided to upload it here for the snake of it.
 
-Throughout the code you might see some odd choices in the way I did things, but the explanation is almost always the executable size. There are a few places where writing something in a slightly unorthodox way resulted in a decrease in the binary size, so if you see anything odd, that's most likely the reason for it.
+In the code you might see some odd choices in the way I did things, but the explanation is almost always the executable size. There were a few places where writing something in a slightly unorthodox way resulted in a decreased binary size, so if you see anything odd, that's probably why.
 
 
 ## Usage 🖥️
