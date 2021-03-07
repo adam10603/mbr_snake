@@ -2,7 +2,7 @@
 ![Version](https://img.shields.io/badge/Version-1.0-blue.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 
-## Intro
+## Intro 🖊️
 
 
 A classic game of Snake that fits into an x86 boot sector, written in C++17.
@@ -20,7 +20,7 @@ Originally I developed a version of this for a university assignment in 2017, ho
 Throughout the code you might see some odd choices in the way I did things, but the explanation is almost always the executable size. There are a few places where writing something in a slightly unorthodox way resulted in a decrease in the binary size, so if you see anything odd, that's most likely the reason for it.
 
 
-## Usage
+## Usage 🖥️
 
 
 1. To run the game, you can **download a bootable image from [Releases](https://github.com/adam10603/mbr_snake/releases)**, or build one yourself (see [Building](#building)).
@@ -32,7 +32,7 @@ Throughout the code you might see some odd choices in the way I did things, but 
 3. Once you've booted the game, you can play using the **arrow keys** ⬆ ➡ ⬇ ⬅ .
 
 
-## Building
+## Building 🛠️
 
 
 Building this project **specifically requires GCC on Linux**. Your mileage may vary depending on your GCC version though, since a different version may produce a slightly oversized binary. For reference, I used **GCC 9.3**.
@@ -50,7 +50,7 @@ Building this project **specifically requires GCC on Linux**. Your mileage may v
     - `mbr_snake.img` - This is the final product you'll probably use, as **this is a bootable floppy disk image**. It's a 1.44MB zero-filled file with the contents of `mbr_snake_bs.bin` copied to its first 512 bytes, making for an empty floppy disk image with the game in its boot sector.
 
 
-## Known Issues
+## Known Issues 🛑
 
 
 - A newly spawned food item can overlap with the snake's body. This isn't game-breaking though, as you can just move over a bit, then come back to grab it. Sadly, inserting a check for this would take up too many instructions, and there's not enough space for that.
@@ -58,7 +58,7 @@ Building this project **specifically requires GCC on Linux**. Your mileage may v
 - Pressing specifically `End` or `PageUp` will temporarily break the game until you press an arrow key. Once again, the reason for this is the lack of binary space for doing more extensive input checking. As to why those two keys in particular are the problem, that comes down to keyboard scan code values.
 
 
-## Version history
+## Version history 📃
 
 
 * v1.0
