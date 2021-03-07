@@ -33,7 +33,7 @@ Originally I developed a version of this for a university assignment in 2017, ho
 ## Building
 
 
-This project **specifically requires GCC on Linux** to be built. Your mileage may vary depending on your GCC version though, since a different version may produce a binary that's too large. For the record, I used **GCC 9.3**. 
+Building this project **specifically requires GCC on Linux**. Your mileage may vary depending on your GCC version though, since a different version may produce a slightly oversized binary. For reference, I used **GCC 9.3**.
 
 1. Make sure you have `libc6-dev-i386` or your distro's equivalent 32-bit dev library installed. [See this post](https://stackoverflow.com/a/7412698/3606363) for more information.
 
