@@ -1,4 +1,4 @@
-# MBR Snake
+# MBR Snake 🐍
 ![Version](https://img.shields.io/badge/Version-1.0-blue.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 
