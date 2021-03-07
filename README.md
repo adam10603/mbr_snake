@@ -41,7 +41,7 @@ This project **specifically requires GCC on Linux** to be built. Your mileage ma
 
     - `mbr_snake_bs.bin` - Its contents are the same as the file from step 2, but its been padded to exactly 512 bytes and given the 2-byte MBR signature `55 AA` at the end. **This is an exact image of a boot sector**.
 
-    - `mbr_snake.img` - This is the final product you'll probably use, as **this is a bootable floppy disk image**. It's a 1.44MB zero-filled file with the contents of `mbr_snake_bs.bin` copied to its first 512 bytes, creating an empty floppy disk image with the game in its boot sector.
+    - `mbr_snake.img` - This is the final product you'll probably use, as **this is a bootable floppy disk image**. It's a 1.44MB zero-filled file with the contents of `mbr_snake_bs.bin` copied to its first 512 bytes, making for an empty floppy disk image with the game in its boot sector.
 
 
 ## Known Issues
