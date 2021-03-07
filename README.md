@@ -17,6 +17,8 @@ An x86 boot sector has 510 bytes of usable program space. The entire game includ
 
 Originally I developed a version of this for a university assignment in 2017, however, at the time I couldn't fully implement every feature of the game without going over the size limit. Recently in 2021 I stumbled across that original project and decided to give it another go. Thanks to everything I've learned since then, I was able to fully implement the game this time, so I decided to upload it here for the snake of it.
 
+Throughout the code you might see some odd choices in the way I did things, but the explanation is almost always the executable size. There are a few places where writing something in a slightly unorthodox way resulted in decrease in the binary size, so if you see anything odd, that's most likely the reason.
+
 
 ## Usage
 
