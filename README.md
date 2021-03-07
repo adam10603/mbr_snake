@@ -5,7 +5,7 @@
 ## Intro
 
 
-A classic game of Snake that runs from an x86 boot sector, written in C++17.
+A classic game of Snake that fits into an x86 boot sector, written in C++17.
 
 The main goal of this project is to show how it's possible to use modern tools such as STL algorithms, lambdas, templates and more, to target even the most low-level environments without any runtime overhead. [This CppCon talk](https://www.youtube.com/watch?v=zBkNBP00wJE) by Jason Turner with a similar theme was a big inspiration behind making this.
 
