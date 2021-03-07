@@ -23,7 +23,7 @@ Throughout the code you might see some odd choices in the way I did things, but 
 ## Usage 🖥️
 
 
-1. To run the game, you can **download a bootable image from [Releases](https://github.com/adam10603/mbr_snake/releases)**, or build one yourself (see [Building](#building)).
+1. To run the game, you can **download a bootable image from [Releases](https://github.com/adam10603/mbr_snake/releases)**, or build one yourself (see [Building](#building-🛠️)).
 
 2. After you have an image, you can **use a virtual machine** to boot it (such as VirtualBox or QEMU), or even a real PC by flashing the image onto a USB drive for example.
 
