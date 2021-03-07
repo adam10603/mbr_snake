@@ -37,7 +37,7 @@ This project **specifically requires GCC on Linux** to be built. Your mileage ma
 
     - `mbr_snake.bin` - **This is the raw program binary** and nothing else. It's useful for checking the final size of the program (cannot be over 510 bytes).
 
-3. Use `make image` which uses the file from step 2 to produce two more (these are the ones in [Releases](https://github.com/adam10603/mbr_snake/releases)):
+3. Use `make image` which uses the file from step 2 to make two more files (these are what you get in a [Release](https://github.com/adam10603/mbr_snake/releases)):
 
     - `mbr_snake_bs.bin` - Its contents are the same as the file from step 2, but its been padded to exactly 512 bytes and given the 2-byte MBR signature `55 AA` at the end. **This is an exact image of a boot sector**.
 
