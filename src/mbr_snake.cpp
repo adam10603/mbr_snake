@@ -330,7 +330,7 @@ public:
 			return;
 		}
 
-		// Resetting on edge collision
+		// Resetting on self-collision
 		for (len_type i{ 1 }; i < m_len; i++)
 		{
 			if (isHeadAtPosition(segment[i]))
