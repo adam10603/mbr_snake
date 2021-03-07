@@ -1,7 +1,5 @@
 .vscode
 .vs
-*.bin
-*.img
 backup*
 test*
 releases/*
