@@ -384,7 +384,7 @@ int main()
 	game<16> snake;
 
 	// 2 ticks per frame is about 9.1 FPS
-	// If the game is too fast, set it to 3 which is about 6.1 FPS (shouldn't affect the binary size)
+	// If the game is too fast, set this to 3 which is about 6.1 FPS (shouldn't affect the binary size)
 	constexpr auto frameTime = x86::ticks_t(2);
 
 	while (true)

@@ -27,7 +27,8 @@ $(EXEC): $(OBJECT)
 		printf "Binary is too large: $$SNAKE_EXEC_SIZE bytes\n" ; \
 		false ; \
 	else \
-		printf "Binary size: $$SNAKE_EXEC_SIZE bytes\n" ; \
+		printf "Binary created:  $(OUTPUT_DIR)/$(OUTPUT)\n" ; \
+		printf "Binary size:     $$SNAKE_EXEC_SIZE bytes\n" ; \
 	fi
 
 image:
@@ -48,8 +49,8 @@ image:
 			(sync $(OUTPUT_DIR)/$(OUTPUT_IMG) ) ; \
 			(dd conv=notrunc if=/dev/zero of=$(OUTPUT_DIR)/$(OUTPUT_IMG) bs=512 count=2879 seek=1 > /dev/null 2>&1 & ) ; \
 			(sync $(OUTPUT_DIR)/$(OUTPUT_IMG) ) ; \
-			(printf "Boot sector data created:              $(OUTPUT_DIR)/$(OUTPUT_BS)\n" ) ; \
-			(printf "Bootable 1.44MB floppy image created:  $(OUTPUT_DIR)/$(OUTPUT_IMG)\n" ) ; \
+			(printf "Boot sector data created:       $(OUTPUT_DIR)/$(OUTPUT_BS)\n" ) ; \
+			(printf "Bootable floppy image created:  $(OUTPUT_DIR)/$(OUTPUT_IMG)\n" ) ; \
 		fi \
 	else \
 		printf "The binary file does not exist. Use 'make' to build it first!\n" ; \
