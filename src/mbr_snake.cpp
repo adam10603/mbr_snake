@@ -211,7 +211,6 @@ class game
 	};
 
 	// segment[0] is always the head
-	// A raw ptr is a bit ugly, but a function here adds to the binary size
 	u16Vec2* const segment{ reinterpret_cast<decltype(segment)>(0x00007E00) };
 
 	dir_type	m_dir{};
@@ -271,7 +270,6 @@ class game
 
 	void updateHead()
 	{
-		// A switch makes for a larger binary here
 			 if (m_dir == dirKeys::UP)		segment[0].y--;
 		else if (m_dir == dirKeys::LEFT)	segment[0].x--;
 		else if (m_dir == dirKeys::RIGHT)	segment[0].x++;
