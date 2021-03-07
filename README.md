@@ -7,7 +7,7 @@
 
 A classic game of Snake that runs from an x86 boot sector, written in C++17.
 
-The main goal of this project is to show how it's possible to use modern tools such as STL algorithms, lambdas, templates and more, to target even the most low-level environments with zero runtime overhead. [This 2016 CppCon talk](https://www.youtube.com/watch?v=zBkNBP00wJE) by Jason Turner with a similar theme was a big inspiration behind making this.
+The main goal of this project is to show how it's possible to use modern tools such as STL algorithms, lambdas, templates and more, to target even the most low-level environments with zero runtime overhead. [This CppCon talk](https://www.youtube.com/watch?v=zBkNBP00wJE) by Jason Turner with a similar theme was a big inspiration behind making this.
 
 An x86 boot sector has 510 bytes of usable program space. The entire game including logic, graphics, input handling etc. has to fit in there. Of course there's no underlying operating system to provide further runtime functionality (such as memory allocation) either, so the binary has to be entirely self-sufficient as well.
 
