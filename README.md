@@ -58,7 +58,7 @@ Building this project **specifically requires GCC on Linux**. Your mileage may v
 - Pressing specifically `End` or `PageUp` will temporarily break the game until you press an arrow key. Once again, the reason for this is the lack of binary space for doing more extensive input checking. As to why those two keys in particular are the problem, that comes down to keyboard scan code values.
 
 
-## Version history 📃
+## Version History 📃
 
 
 * v1.0
