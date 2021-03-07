@@ -25,7 +25,7 @@ Originally I developed a version of this for a university assignment in 2017, ho
 
 2. After you have an image, you can **use a virtual machine** to boot it (such as VirtualBox or QEMU), or even a real PC by flashing the image onto a USB drive for example.
 
-    - **[This browser-based VM](https://copy.sh/v86/) is probably the easiest**. Open the website, select `mbr_snake.img` as "Floppy disk image", and click "Start emulation". I suggest increasing the "Scale" setting to see things better.
+    - **[This browser-based VM](https://copy.sh/v86/) is very convenient**. Open the site, select `mbr_snake.img` as "Floppy disk image", and click "Start emulation". I suggest increasing the "Scale" setting to see things better.
 
 3. Once you've booted the game, you can play using the **arrow keys** ⬆ ➡ ⬇ ⬅ .
 
