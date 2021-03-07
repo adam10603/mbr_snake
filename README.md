@@ -19,7 +19,7 @@ Originally I developed a version of this for a university assignment in 2017, ho
 
 2. After you have an image, you can **use a virtual machine** to boot it (such as VirtualBox or QEMU), or even a real PC by flashing the image onto a USB drive for example.
 
-  - **[This browser-based VM](https://copy.sh/v86/) is probably the easiest**. Simply go there, upload the image under "Floppy disk image", and click "Start emulation". I suggest increasing the "Scale" setting to see things better.
+    - **[This browser-based VM](https://copy.sh/v86/) is probably the easiest**. Simply go there, upload the image under "Floppy disk image", and click "Start emulation". I suggest increasing the "Scale" setting to see things better.
 
 3. Once you've booted the game, you can play using the **arrow keys** ⬆ ➡ ⬇ ⬅ .
 
@@ -32,13 +32,14 @@ This project **specifically requires GCC on Linux** to be built. Your mileage ma
 1. Make sure you have `libc6-dev-i386` or your distro's equivalent 32-bit dev library installed. [See this post](https://stackoverflow.com/a/7412698/3606363) for more information.
 
 2. Use `make` for the initial build. This creates one file in the `bin` directory:
-  - `mbr_snake.bin` - **This is the raw program binary** and nothing else. It's useful for checking the final size of the program (cannot be over 510 bytes).
+
+    - `mbr_snake.bin` - **This is the raw program binary** and nothing else. It's useful for checking the final size of the program (cannot be over 510 bytes).
 
 3. Use `make image` which uses the file from step 2 to produce the following files:
 
-  - `mbr_snake_bs.bin` - Its contents are the same as the file from step 2, but its been padded to exactly 512 bytes and given the 2-byte MBR signature `55 AA` at the end. **This is an exact image of a boot sector**.
+    - `mbr_snake_bs.bin` - Its contents are the same as the file from step 2, but its been padded to exactly 512 bytes and given the 2-byte MBR signature `55 AA` at the end. **This is an exact image of a boot sector**.
 
-  - `mbr_snake.img` - This is the final product you'll probably use, as **this is a bootable floppy disk image**. It's a 1.44MB zero-filled file with the contents of `mbr_snake_bs.bin` copied to its first 512 bytes, creating an empty floppy disk image with the game in its boot sector.
+    - `mbr_snake.img` - This is the final product you'll probably use, as **this is a bootable floppy disk image**. It's a 1.44MB zero-filled file with the contents of `mbr_snake_bs.bin` copied to its first 512 bytes, creating an empty floppy disk image with the game in its boot sector.
 
 
 ## Known Issues
