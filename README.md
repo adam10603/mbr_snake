@@ -35,7 +35,7 @@ Originally I developed a version of this for a university assignment in 2017, ho
 
 Building this project **specifically requires GCC on Linux**. Your mileage may vary depending on your GCC version though, since a different version may produce a slightly oversized binary. For reference, I used **GCC 9.3**.
 
-1. Make sure you have `libc6-dev-i386` or your distro's equivalent 32-bit dev library. [See this post](https://stackoverflow.com/a/7412698/3606363) for more info.
+1. Make sure `libc6-dev-i386` or your distro's equivalent 32-bit dev library is installed. [See this post](https://stackoverflow.com/a/7412698/3606363) for more info.
 
 2. Use `make` for the initial build. This creates one file in the `bin` directory:
 
@@ -43,7 +43,7 @@ Building this project **specifically requires GCC on Linux**. Your mileage may v
 
 3. Use `make image` which uses the file from step 2 to make two more files (these are what you get in a [Release](https://github.com/adam10603/mbr_snake/releases)):
 
-    - `mbr_snake_bs.bin` - Its contents are the same as the file from step 2, but its been padded to exactly 512 bytes and given the 2-byte MBR signature `55 AA` at the end. **This is an exact image of a boot sector**.
+    - `mbr_snake_bs.bin` - Same as the file from step 2, but it's been padded to 512 bytes and given the 2-byte MBR signature `55 AA` at the end. **This is an exact image of a boot sector**.
 
     - `mbr_snake.img` - This is the final product you'll probably use, as **this is a bootable floppy disk image**. It's a 1.44MB zero-filled file with the contents of `mbr_snake_bs.bin` copied to its first 512 bytes, making for an empty floppy disk image with the game in its boot sector.
 
