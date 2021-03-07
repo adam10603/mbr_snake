@@ -38,18 +38,18 @@ image:
 			printf "Binary is too large: $$SNAKE_EXEC_SIZE bytes\n" ; \
 			false ; \
 		else \
-			(rm -f $(OUTPUT_DIR)/$(OUTPUT_IMG) $(OUTPUT_DIR)/$(OUTPUT_BS) ) ; \
-			(cp $(OUTPUT_DIR)/$(OUTPUT) $(OUTPUT_DIR)/$(OUTPUT_BS) ) ; \
-			(sync $(OUTPUT_DIR)/$(OUTPUT_BS) ) ; \
-			(dd conv=notrunc if=/dev/zero of=$(OUTPUT_DIR)/$(OUTPUT_BS) bs=1 count=$$(( 510 - $$SNAKE_EXEC_SIZE )) seek=$$SNAKE_EXEC_SIZE > /dev/null 2>&1 & ) ; \
-			(sync $(OUTPUT_DIR)/$(OUTPUT_BS) ) ; \
-			(printf "\x55\xAA" >> $(OUTPUT_DIR)/$(OUTPUT_BS) ) ; \
-			(sync $(OUTPUT_DIR)/$(OUTPUT_BS) ) ; \
-			(cp $(OUTPUT_DIR)/$(OUTPUT_BS) $(OUTPUT_DIR)/$(OUTPUT_IMG) ) ; \
-			(sync $(OUTPUT_DIR)/$(OUTPUT_IMG) ) ; \
-			(dd conv=notrunc if=/dev/zero of=$(OUTPUT_DIR)/$(OUTPUT_IMG) bs=512 count=2879 seek=1 > /dev/null 2>&1 & ) ; \
-			(sync $(OUTPUT_DIR)/$(OUTPUT_IMG) ) ; \
+			(rm -f $(OUTPUT_DIR)/$(OUTPUT_IMG) $(OUTPUT_DIR)/$(OUTPUT_BS) ) && \
+			(cp $(OUTPUT_DIR)/$(OUTPUT) $(OUTPUT_DIR)/$(OUTPUT_BS) ) && \
+			(sync $(OUTPUT_DIR)/$(OUTPUT_BS) ) && \
+			(dd conv=notrunc if=/dev/zero of=$(OUTPUT_DIR)/$(OUTPUT_BS) bs=1 count=$$(( 510 - $$SNAKE_EXEC_SIZE )) seek=$$SNAKE_EXEC_SIZE > /dev/null 2>&1 & ) && \
+			(sync $(OUTPUT_DIR)/$(OUTPUT_BS) ) && \
+			(printf "\x55\xAA" >> $(OUTPUT_DIR)/$(OUTPUT_BS) ) && \
+			(sync $(OUTPUT_DIR)/$(OUTPUT_BS) ) && \
 			(printf "Boot sector data created:       $(OUTPUT_DIR)/$(OUTPUT_BS)\n" ) ; \
+			(cp $(OUTPUT_DIR)/$(OUTPUT_BS) $(OUTPUT_DIR)/$(OUTPUT_IMG) ) && \
+			(sync $(OUTPUT_DIR)/$(OUTPUT_IMG) ) && \
+			(dd conv=notrunc if=/dev/zero of=$(OUTPUT_DIR)/$(OUTPUT_IMG) bs=512 count=2879 seek=1 > /dev/null 2>&1 & ) && \
+			(sync $(OUTPUT_DIR)/$(OUTPUT_IMG) ) && \
 			(printf "Bootable floppy image created:  $(OUTPUT_DIR)/$(OUTPUT_IMG)\n" ) ; \
 		fi \
 	else \
