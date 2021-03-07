@@ -52,7 +52,6 @@ public:
 	using ticks_t = uint16_t;
 
 	// Hard coded for 16-color video modes such as 0x0d
-	// Inspired by: https://www.youtube.com/watch?v=zBkNBP00wJE
 	template <uint8_t Red, uint8_t Green, uint8_t Blue>
 	static constexpr uint8_t rgb()
 	{
@@ -203,7 +202,8 @@ class game
 	using len_type = int8_t;
 
 	// Not using enum class on purpose
-	enum dirKeys : dir_type {
+	enum dirKeys : dir_type
+	{
 		UP		= 0x48,
 		LEFT	= 0x4B,
 		RIGHT	= 0x4D,
@@ -211,7 +211,7 @@ class game
 	};
 
 	// segment[0] is always the head
-	// A raw ptr is a bit ugly, but a function taking an index and returning a reference adds to the binary size somehow
+	// A raw ptr is a bit ugly, but a function here adds to the binary size
 	u16Vec2* const segment{ reinterpret_cast<decltype(segment)>(0x00007E00) };
 
 	dir_type	m_dir{};
@@ -308,16 +308,15 @@ public:
 	{
 		m_len = m_nextLen;
 
-		// Reading input if available
 		readInput();
 
-		// Moving the tail by setting each segment (except the head) to the position of the segment in front of it
+		// Moving the tail by setting each segment (except the head) to the position of the one in front of it
 		for (len_type i = m_len - 1; i > 0; i--)
 		{
 			segment[i] = segment[i - 1];
 		}
 
-		// Moving the head to its new position
+		// Moving the head
 		updateHead();
 
 		auto isCoordInBounds	= []	(const auto& val) { return val <= (Size - 1u);	};
@@ -331,7 +330,7 @@ public:
 			return;
 		}
 
-		// Resetting on self-collision
+		// Resetting on edge collision
 		for (len_type i{ 1 }; i < m_len; i++)
 		{
 			if (isHeadAtPosition(segment[i]))
@@ -344,7 +343,7 @@ public:
 		// Checking if the food has been reached
 		if (isHeadAtPosition(m_foodPos))
 		{
-			// Only effective on the next frame so that we don't render an uninitialized segment on the current frame
+			// Only effective on the next frame so that we don't render an uninitialized segment
 			m_nextLen++;
 
 			spawnFood();
@@ -384,7 +383,7 @@ int main()
 	game<16> snake;
 
 	// 2 ticks per frame is about 9.1 FPS
-	// If the game is too fast, set this to 3 which is about 6.1 FPS (shouldn't affect the binary size)
+	// If that's too fast, set this to 3 which is about 6.1 FPS
 	constexpr auto frameTime = x86::ticks_t(2);
 
 	while (true)
