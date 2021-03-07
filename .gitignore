@@ -4,6 +4,7 @@
 *.img
 backup*
 test*
+releases/*
 
 # Prerequisites
 *.d
