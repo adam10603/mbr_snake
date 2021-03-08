@@ -278,7 +278,7 @@ class game
 
 public:
 
-	game() : m_foodPos{ Size / 5u, Size / 3u }, m_dir{ dirKeys::RIGHT }
+	game() : m_dir{ dirKeys::RIGHT }, m_foodPos{ Size / 5u, Size / 3u }
 	{
 		x86::setVideoMode(0x0d);
 		reset();
@@ -290,7 +290,7 @@ public:
 		{
 			x86::ticks_t startTime{}, endTime{};
 		public:
-			Frame(x86::ticks_t time) : startTime{ x86::getTicks() }, endTime( endTime = startTime + time )
+			Frame(x86::ticks_t time) : startTime{ x86::getTicks() }, endTime( startTime + time )
 			{
 			}
 			~Frame()
