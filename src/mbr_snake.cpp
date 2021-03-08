@@ -6,11 +6,9 @@
 // Don't use macros kids
 // Only doing this because I edit the source on Windows, and GCC-specific things break intellisense
 #if defined(__GNUG__) && !defined(__clang__)
-	#define _ALWAYS_INLINE_ __attribute__((always_inline))
 	#define _ASM_VOLATILE_(...) asm volatile(__VA_ARGS__)
 	#define _ASM_VOLATILE_GOTO_(...) asm volatile goto(__VA_ARGS__)
 #else
-	#define _ALWAYS_INLINE_
 	#define _ASM_VOLATILE_(...)
 	#define _ASM_VOLATILE_GOTO_(...)
 #endif
@@ -302,7 +300,7 @@ public:
 		return Frame(duration);
 	}
 
-	_ALWAYS_INLINE_ void update()
+	[[gnu::always_inline]] void update()
 	{
 		m_len = m_nextLen;
 
@@ -369,7 +367,7 @@ public:
 		x86::setPixel(x86::rgb<255, 255, 255>(), m_foodPos.x, m_foodPos.y);
 	}
 
-	_ALWAYS_INLINE_ void mainLoop()
+	[[gnu::always_inline]] void mainLoop()
 	{
 		update();
 		draw();
