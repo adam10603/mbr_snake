@@ -219,6 +219,8 @@ class game
 	template <typename T>
 	[[nodiscard]] T randomData()
 	{
+		static_assert(sizeof(T) <= 255);
+
 		// lol
 		return *reinterpret_cast<T*>(0x7C00 + m_rndOffset++);
 	}

@@ -3,7 +3,7 @@
 SHELL:=/bin/bash
 
 CXX = g++
-CXX_FLAGS = -std=c++17 -Os -Wall -Werror -m16 -march=i386 -ffreestanding -fmerge-constants -c
+CXX_FLAGS = -std=c++17 -Os -Wall -pedantic -Werror -m16 -march=i386 -ffreestanding -fmerge-constants -c
 LD = ld
 LD_FLAGS = -static --nmagic -nostdlib -m elf_i386
 
