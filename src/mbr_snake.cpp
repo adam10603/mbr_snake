@@ -2,6 +2,7 @@
 #include <iterator>
 #include <algorithm>
 #include <type_traits>
+#include <cstring>
 
 // Don't use macros kids
 // Only doing this because I edit the source on Windows, and GCC-specific things break intellisense
@@ -12,6 +13,15 @@
 	#define _ASM_VOLATILE_(...)
 	#define _ASM_VOLATILE_GOTO_(...)
 #endif
+
+// https://en.cppreference.com/w/cpp/numeric/bit_cast
+template <typename To, typename From>
+inline typename std::enable_if_t<(sizeof(To) == sizeof(From)) && std::is_trivially_copyable<From>::value && std::is_trivial<To>::value, To>
+bit_cast(const From& src) noexcept {
+	To dst{};
+	std::memcpy(&dst, &src, sizeof(To));
+	return dst;
+}
 
 template <typename T>
 struct vec2
@@ -114,7 +124,7 @@ public:
 	// 		"int $0x16"
 	// 		: "+ax"(ax)
 	// 	);
-	// 	return *reinterpret_cast<char*>(&ax); // Low byte
+	// 	return *::bit_cast<char*>(&ax); // Low byte
 	// }
 
 	static auto readKeyboardScanCode()
@@ -125,7 +135,7 @@ public:
 			"int $0x16"
 			: "+ax"(ax)
 		);
-		return *(reinterpret_cast<int8_t*>(&ax) + 1); // High byte
+		return *(::bit_cast<int8_t*>(&ax) + 1); // High byte
 	}
 
 	[[nodiscard]] static auto isKeyAvailable()
@@ -209,7 +219,9 @@ class game
 	};
 
 	// segment[0] is always the head
-	u16Vec2* const segment{ reinterpret_cast<decltype(segment)>(0x00007E00) };
+	u16Vec2* const segment{ ::bit_cast<u16Vec2*>(intptr_t(0x00007E00)) };
+
+	static_assert(sizeof(decltype(segment)) == sizeof(intptr_t));
 
 	dir_type	m_dir{};
 	len_type	m_len{}, m_nextLen{};
@@ -220,9 +232,10 @@ class game
 	[[nodiscard]] T randomData()
 	{
 		static_assert(sizeof(T) <= 255);
+		static_assert(sizeof(T*) == sizeof(intptr_t));
 
 		// lol
-		return *reinterpret_cast<T*>(0x7C00 + m_rndOffset++);
+		return *::bit_cast<T*>(intptr_t(0x7C00 + m_rndOffset++));
 	}
 
 	void spawnFood()
