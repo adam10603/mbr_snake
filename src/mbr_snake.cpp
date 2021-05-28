@@ -17,7 +17,8 @@
 // https://en.cppreference.com/w/cpp/numeric/bit_cast
 template <typename To, typename From>
 inline typename std::enable_if_t<(sizeof(To) == sizeof(From)) && std::is_trivially_copyable<From>::value && std::is_trivial<To>::value, To>
-bit_cast(const From& src) noexcept {
+bit_cast(const From& src) noexcept
+{
 	To dst{};
 	std::memcpy(&dst, &src, sizeof(To));
 	return dst;
