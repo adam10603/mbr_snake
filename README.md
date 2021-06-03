@@ -13,11 +13,11 @@ The main goal of this project is to show how it's possible to use modern tools s
 ![Gameplay](https://i.imgur.com/yP49Wzl.gif)
 
 
-An x86 boot sector has 510 bytes of usable program space. The entire game including logic, graphics, input handling etc. has to fit in there. Since there's no underlying OS to provide further runtime functionality (like memory allocation), the binary has to be fully self-sufficient as well.
+An x86 boot sector has 510 bytes of usable program space. The entire game including logic, graphics, input handling etc. has to fit in there. Since there's no underlying OS to provide further runtime functionality (like memory allocation) either, the binary has to be fully self-sufficient as well.
 
-Originally I developed a version of this for a university assignment in 2017, however, at the time I had to cut some features due to the size limit. Recently I came across that original project and decided to give it another go. This time I was finally able to fully implement the game in under 510 bytes, so I figured I'd share it just for the snake of it.
+Originally I developed a version of this for a university assignment in 2017, but I had to cut features at the time due to the size limit. Recently I came across that original project and decided to give it another go and share it here for the snake of it.
 
-In the code you might see some odd choices in the way I did things, but the explanation is almost always the executable size. There were a few places where writing something in a weird way resulted in a decreased binary size, so if you see anything odd, that's probably why.
+In the code you might see some odd choices in the way I did things, but the explanation is almost always the executable size. There were a few places where writing something in a weird way resulted in a decreased binary size, so if you see anything odd, that might be why.
 
 
 ## Usage 🖥️
