@@ -56,6 +56,8 @@ class x86
 
 public:
 
+	x86() = delete;
+
 	// Only using the low word of the tick count for this project
 	// Using all 32 bits increases the binary size a lot
 	using ticks_t = uint16_t;
@@ -302,9 +304,9 @@ public:
 	{
 		class Frame
 		{
-			x86::ticks_t startTime{}, endTime{};
+			x86::ticks_t endTime{};
 		public:
-			Frame(x86::ticks_t time) : startTime{ x86::getTicks() }, endTime( startTime + time )
+			Frame(x86::ticks_t time) : endTime( x86::getTicks() + time )
 			{
 			}
 			~Frame()
@@ -396,7 +398,7 @@ int main()
 
 	// 2 ticks per frame is about 9.1 FPS
 	// If that's too fast, set this to 3 which is about 6.1 FPS
-	constexpr auto frameTime = x86::ticks_t(2);
+	const auto frameTime = x86::ticks_t(2);
 
 	while (true)
 	{
