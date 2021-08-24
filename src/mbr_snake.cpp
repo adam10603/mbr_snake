@@ -16,10 +16,10 @@
 
 // https://en.cppreference.com/w/cpp/numeric/bit_cast
 template <typename To, typename From>
-inline typename std::enable_if_t<(sizeof(To) == sizeof(From)) && std::is_trivially_copyable<From>::value && std::is_trivial<To>::value, To>
+inline typename std::enable_if_t<(sizeof(To) == sizeof(From)) && std::is_trivially_copyable_v<From> && std::is_trivial_v<To>, To>
 bit_cast(const From& src) noexcept
 {
-	To dst{};
+	To dst;
 	std::memcpy(&dst, &src, sizeof(To));
 	return dst;
 }
@@ -215,14 +215,14 @@ class game
 	// Not using enum class on purpose
 	enum dirKeys : dir_type
 	{
-		UP		= 0x48,
-		LEFT	= 0x4B,
-		RIGHT	= 0x4D,
-		DOWN	= 0x50
+		UP		= 0b01001000,	//0x48
+		LEFT	= 0b01001011,	//0x4B
+		RIGHT	= 0b01001101,	//0x4D
+		DOWN	= 0b01010000	//0x50
 	};
 
 	// segment[0] is always the head
-	u16Vec2* const segment{ ::bit_cast<u16Vec2*>(intptr_t(0x00007E00)) };
+	u16Vec2* const segment{ ::bit_cast<u16Vec2*>(intptr_t(0x7E00)) };
 
 	static_assert(sizeof(decltype(segment)) == sizeof(intptr_t));
 
@@ -238,7 +238,9 @@ class game
 		static_assert(sizeof(T*) == sizeof(intptr_t));
 
 		// lol
-		return *::bit_cast<T*>(intptr_t(0x7C00 + m_rndOffset++));
+		T ret;
+		std::memcpy(&ret, ::bit_cast<void*>(intptr_t(0x7C00 + m_rndOffset++)), sizeof(T));
+		return ret;
 	}
 
 	void spawnFood()
